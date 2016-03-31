@@ -1,0 +1,41 @@
+Button {
+    -fx-background-radius: 2em;
+    -fx-border-radius: 1em;
+    -fx-font-size: 1.4em;
+    -fx-font-weight: Bold;
+}
+
+TextField {
+    -fx-background-radius: 2em;
+}
+
+.white-background {
+	-fx-background-color: white;
+}
+
+.border-theme {
+	-fx-alignment: center;
+	-fx-border-color: black;
+	-fx-border-radius: 1em;
+	-fx-background-color: transparent;
+}
+
+/*
+ ** Theme for the menu
+ */
+
+.menu .label {
+    -fx-text-fill: black;
+}
+
+.menu:showing .label {
+    -fx-text-fill: darkgrey;
+}
+
+.menu:hover .label {
+    -fx-text-fill: darkgrey;
+}
+
+.menu-item:hover .label {
+    -fx-text-fill: black;
+}

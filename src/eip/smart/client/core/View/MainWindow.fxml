@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="760.0" prefWidth="1150.0" stylesheets="@../../css/MainWindowTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eip.smart.client.core.Controllers.MainWindowController">
+   <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Menu">
+               <items>
+                  <MenuItem fx:id="MainWindowMinimapMenuItem" mnemonicParsing="false" onAction="#launchMinimap" text="Launch Minimap" />
+                  <MenuItem mnemonicParsing="false" onAction="#disconnect" text="Disconnect" />
+                  <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Pane fx:id="MainWindowTitlePane" VBox.vgrow="NEVER">
+         <children>
+            <Label styleClass="title_label" text="SMART Desktop Interface" />
+         </children>
+      </Pane>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ListView fx:id="MainWindowNavigationListView" HBox.hgrow="NEVER" />
+            <Separator orientation="VERTICAL" HBox.hgrow="NEVER" />
+            <StackPane HBox.hgrow="ALWAYS">
+               <children>
+                  <AnchorPane fx:id="MainWindowHomeAnchorPane">
+                     <children>
+                        <Label layoutX="345.0" layoutY="14.0" styleClass="title_label_nav" text="Home" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Separator layoutX="96.0" layoutY="46.0" prefHeight="3.0" prefWidth="709.0" styleClass="separator_nav" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Separator>
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="100.0" layoutX="69.0" layoutY="129.0" vgap="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                           <children>
+                              <GridPane fx:id="MainWindowHomeAgentsGridPane" styleClass="gridPane_title_resume">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="106.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@../../icons/Without_Description/agents.png" />
+                                       </image>
+                                       <GridPane.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <Label fx:id="MainWindowHomeAgentsInfoLabel" styleClass="label_title_resume" text="Agents" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                       <GridPane.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <GridPane fx:id="MainWindowHomeModelingsGridPane" styleClass="gridPane_title_resume">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="106.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../icons/Without_Description/modelings.png" />
+                                       </image>
+                                       <GridPane.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <Label fx:id="MainWindowHomeModelingsInfoLabel" styleClass="label_title_resume" text="Modelings" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                       <GridPane.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="MainWindowAgentsAnchorPane" visible="false">
+                     <children>
+                        <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ListView fx:id="MainWindowAgentsListView" styleClass="list-cell" HBox.hgrow="ALWAYS" />
+                              <Separator orientation="VERTICAL" HBox.hgrow="ALWAYS" />
+                              <VBox fx:id="MainWindowAgentsVbox" alignment="CENTER" maxWidth="399.0" minWidth="314.0" prefHeight="690.0" prefWidth="399.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="MainWindowAgentTypeImageView" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
+                                    <GridPane fx:id="MainWindowAgentInfoGridPane" gridLinesVisible="true" VBox.vgrow="ALWAYS">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                          <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                          <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label alignment="CENTER" styleClass="label_agents_info" text="State" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Label alignment="CENTER" styleClass="label_agents_info" text="Position" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                          <Label styleClass="label_agents_info" text="Battery" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                          <Label fx:id="MainWindowAgentStateLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Label fx:id="MainWindowAgentPositionLabel" styleClass="label_agents_info" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                          <Label fx:id="MainWindowAgentBatteryLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#deleteAgent" styleClass="deleteButton" text="Delete agent">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </AnchorPane>
+                  <AnchorPane fx:id="MainWindowModelingsAnchorPane" visible="false">
+                     <children>
+                        <GridPane fx:id="MainWindowModelingSettingsGridPane" prefHeight="300.0" prefWidth="643.0" visible="false" AnchorPane.bottomAnchor="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="NEVER" />
+                              <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="title_label_settings" text="Modeling settings" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label styleClass="labelContent" text="You can create one or load an existing one" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <GridPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="MainWindowModelingCreateTextField" alignment="CENTER" styleClass="border-theme">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Button fx:id="DashBoardMainWindowModelingCreateButton" mnemonicParsing="false" onAction="#createModeling" text="Create" GridPane.rowIndex="1" />
+                                    <ProgressIndicator fx:id="MainWindowModelingCreateProgressIndicator" progress="0.0" visible="false" GridPane.rowIndex="2" />
+                                    <Separator orientation="VERTICAL" prefHeight="122.0" prefWidth="6.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="MainWindowModelingLoadComboBox" promptText="Modelings in server" styleClass="border-theme" GridPane.columnIndex="2" />
+                                    <Button fx:id="DashBoardMainWindowShowModelingButton" mnemonicParsing="false" onAction="#displayModeling" text="Show" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Button fx:id="DashBoardMainWindowModelingSettingsCloseButton" mnemonicParsing="false" onAction="#closeMenu" text="Close" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <VBox fx:id="MainWindowModelingVbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" styleClass="title_label_nav" text="Current Modeling" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+                              <Separator prefHeight="3.0" prefWidth="709.0" styleClass="separator_nav">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Separator>
+                              <StackPane VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <GridPane alignment="TOP_CENTER" StackPane.alignment="CENTER">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" valignment="CENTER" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" valignment="CENTER" vgrow="NEVER" />
+                                          <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                                          <RowConstraints maxHeight="100.0" minHeight="30.0" prefHeight="55.0" valignment="CENTER" vgrow="ALWAYS" />
+                                       </rowConstraints>
+                                       <children>
+                                          <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="50.0">
+                                             <children>
+                                                <Label fx:id="MainWindowCurrentModelingNameLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" style="-fx-font-size: 1.3em; -fx-font-weight: Bold;" />
+                                                <Label fx:id="MainWindowCurrentModelingStateLabel" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER">
+                                                   <styleClass>
+                                                      <String fx:value="mappingLabels" />
+                                                      <String fx:value="mappingLabelsInfo" />
+                                                   </styleClass>
+                                                </Label>
+                                                <Button fx:id="MainWindowModelingsSettingsButton" mnemonicParsing="false" onAction="#showMenu" prefHeight="34.0" prefWidth="113.0" text="Settings" textAlignment="CENTER">
+                                                   <graphic>
+                                                      <ImageView fitHeight="29.0" fitWidth="35.0" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../icons/Without_Description/settings_without_description.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </FlowPane>
+                                          <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                             <children>
+                                                <ProgressBar fx:id="MainWindowCurrentModelingCompletionProgressBar" prefHeight="20.0" prefWidth="633.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                                                   <padding>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </padding>
+                                                </ProgressBar>
+                                             </children>
+                                          </AnchorPane>
+                                          <Separator GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                          <GridPane alignment="CENTER" gridLinesVisible="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="ALWAYS" />
+                                                <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="186.0" text="Agents currently working on the modeling" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="186.0" text="Agents available" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                                <ListView fx:id="MainWindowAgentsWorkingModelingListView" styleClass="list-cell" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                                <ListView fx:id="MainWindowAgentsAvailableModelingListView" styleClass="list-cell" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                          <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="50.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                             <children>
+                                                <Button fx:id="MainWindowStartModelingButton" mnemonicParsing="false" onAction="#startModeling" text="Start" />
+                                                <Button fx:id="MainWindowStopModelingButton" mnemonicParsing="false" onAction="#stopModeling" text="Stop" />
+                                                <Button fx:id="MainWindowLoadModelingButton" mnemonicParsing="false" onAction="#loadModeling" prefHeight="26.0" prefWidth="70.0" text="Load" />
+                                                <Button fx:id="MainWindowUnloadModelingButton" mnemonicParsing="false" onAction="#unloadModeling" text="Unload" />
+                                                <Button fx:id="MainWindowDeleteModelingButton" mnemonicParsing="false" onAction="#deleteModeling" text="Delete" />
+                                             </children>
+                                          </FlowPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

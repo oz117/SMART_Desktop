@@ -1,0 +1,77 @@
+.tilePaneButtons {
+    -fx-background-position: center;
+    -fx-background-size: contain;
+    -fx-fit-to-height: true;
+    -fx-fit-to-width: true;
+    -fx-pref-height: 150;
+    -fx-pref-width: 150;
+    -fx-max-height: 150;
+    -fx-max-width: 150;
+    -fx-min-height: 150;
+    -fx-min-width: 150;
+    -fx-background-radius: 0em;
+    -fx-border-radius: 0em;
+    -fx-border-width: 0.3em;
+}
+
+.list-cell {
+    -fx-padding: 2px ;
+    -fx-background-color: transparent;
+		-fx-border-color: transparent;
+		-fx-background-insets: 0px, 2px ;
+    -fx-border-width: 0.2em;
+		-fx-text-fill: black;
+}
+
+/*
+** For when the button is selected
+*/
+.buttonClicked:focused {
+    -fx-border-color: darkgrey;
+}
+
+.titleLabel {
+	-fx-font-size: 30px;
+	-fx-font-weight: bold;
+}
+
+.labelError {
+    -fx-alignment: center;
+    -fx-font-size: 20px;
+    -fx-text-fill: red;
+}
+
+.labelContent {
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+}
+
+.mappingLabels {
+	 -fx-font-size: 16px;
+}
+
+.modelingLoaded {
+	-fx-background-color: #d9edf7;
+}
+
+#DashBoardMainWindowAgentsButton {
+    -fx-background-image: url("../icons/With_Description/drone_without_credit_with_description.png");
+}
+
+#DashBoardMainWindowModelingsButton {
+    -fx-background-image: url("../icons/With_Description/modeling_without_credits_with_description.png");
+}
+
+#DashBoardMainWindowMinimapButton {
+    -fx-background-image: url("../icons/With_Description/minimap_without_credits_with_description.png");
+}
+
+#DashBoardMainWindowVisualizerButton {
+    -fx-background-image: url("../icons/With_Description/visualizer_without_credits_with_description.png");
+}
+
+#MainWindowAgentInfoGridPane {
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-grid-lines-visible: true;
+}

@@ -1,0 +1,15 @@
+Maven :
+/target/
+/bin/
+
+#Eclipse :
+.settings/
+.classpath
+.project
+
+doc/
+
+#Intellij :
+client.iml
+#Intellij on windows:
+.idea/

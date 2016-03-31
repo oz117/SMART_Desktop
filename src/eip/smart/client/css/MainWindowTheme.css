@@ -1,0 +1,131 @@
+/*
+ * This css page only applies to the main window.
+ * It it's main theme
+ */
+
+/*
+ * Only applies to the title of the MainWindow
+ */
+#MainWindowTitlePane {
+    -fx-background-color:  #009933,
+        linear-gradient(from 0% 0% to 100% 100%, #ccff99, #009933);
+}
+.title_label {
+    -fx-font-size: 2em;
+}
+
+/*
+ * Theme for the label that displays the navigation bar
+ */
+.navigation-list-name {
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+
+/*
+ * Theme for title (Home, Agents, Modelings)
+ */
+.title_label_nav {
+    -fx-font-size: 3em;
+}
+.separator_nav {
+    -fx-background-color: seagreen;
+}
+
+/*
+ * Theme for the elements displayed on the home page
+ */
+.gridPane_title_resume {
+    -fx-font-size: 1.5em;
+    -fx-background-color: #337ab7;
+    -fx-background-radius: 1em;
+}
+
+.label_title_resume {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+}
+
+.label_title_resume_ok {
+    -fx-font-size: 1.5em;
+    -fx-background-radius: 1em;
+    -fx-background-color: #5cb85c !important;
+}
+
+/*
+ * Theme for the agent page
+ */
+.label_agents_info {
+    -fx-font-size: 1.5em;
+}
+
+.label_battery_good {
+    -fx-font-size: 1.5em;
+    -fx-text-fill: darkgreen;
+}
+
+.label_battery_ok {
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #5cb85c;
+}
+
+.label_battery_bad {
+    -fx-font-size: 1.5em;
+    -fx-text-fill: orange;
+}
+
+.label_battery_warning {
+    -fx-font-size: 1.5em;
+    -fx-text-fill: red;
+}
+
+.label_state_ok {
+    -fx-text-fill: darkgreen;
+    -fx-font-size: 1.5em;
+}
+
+.label_state_bad
+{
+    -fx-font-size: 1.5em;
+    -fx-text-fill: red;
+}
+
+.title_label_settings
+{
+    -fx-font-size: 1.5em;
+    -fx-font-weight: Bold;
+}
+
+.deleteButton
+{
+    -fx-background-color: darkred;
+    -fx-text-fill: white;
+}
+
+.modeling_state_loaded_label
+{
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-background-color: #d9edf7;
+}
+
+.modeling_state_unloaded_label
+{
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-background-color: #f5f5f5;
+}
+
+.modeling_state_running_label
+{
+    -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    -fx-background-color: #dff0d8;
+}
+
+Button
+{
+    -fx-background-radius: 2em;
+    -fx-border-radius: 1em;
+    -fx-font-size: 1.1em;
+}

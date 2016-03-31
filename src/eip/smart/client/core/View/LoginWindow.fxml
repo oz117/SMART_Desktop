@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="LoginWindowVBox" maxHeight="640.0" maxWidth="600.0" minHeight="440.0" minWidth="600.0" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eip.smart.client.core.Controllers.LoginWindowController">
+    <stylesheets>
+        <URL value="@../../css/LoginWindow.css" />
+        <URL value="@../../css/WhiteTheme.css" />
+    </stylesheets>
+    <AnchorPane maxHeight="440.0" maxWidth="600.0" minHeight="440.0" minWidth="600.0" prefHeight="440.0" prefWidth="600.0" style="-fx-background-color: #eee;">
+        <children>
+          <VBox maxHeight="380.0" maxWidth="600.0" minHeight="340.0" minWidth="600.0" prefHeight="377.0" prefWidth="600.0" style="-fx-background-color: #eee;" styleClass="Alignment" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                  <MenuBar prefHeight="35.0" prefWidth="286.0">
+                      <menus>
+                          <Menu fx:id="LoginWindowMenuBar" mnemonicParsing="false" text="File">
+                              <items>
+                                  <MenuItem fx:id="LoginWindowDefaultConnectionMenuItem" mnemonicParsing="false" onAction="#connexion" text="Default Connection" />
+                                  <MenuItem fx:id="LoginWindowCloseMenuItem" mnemonicParsing="false" text="Close" />
+                              </items>
+                          </Menu>
+                          <Menu mnemonicParsing="false" text="Help">
+                              <items>
+                                  <MenuItem mnemonicParsing="false" text="About" />
+                              </items>
+                          </Menu>
+                      </menus>
+                      <styleClass>
+                          <String fx:value="menu" />
+                          <String fx:value="menu-item" />
+                      </styleClass>
+                  </MenuBar>
+                  <AnchorPane maxHeight="500.0" maxWidth="600.0" minHeight="309.0" minWidth="600.0" prefHeight="341.0" prefWidth="600.0" styleClass="Alignment">
+                      <children>
+                          <ImageView fx:id="LoginWindowImageView" fitHeight="150.0" fitWidth="560.0" layoutX="20.0" layoutY="26.0" pickOnBounds="true" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <image>
+                                  <Image url="@../../icons/smart_eip_logo_green.png" />
+                              </image>
+                          </ImageView>
+                          <Label layoutX="40.0" layoutY="237.0" prefHeight="24.0" prefWidth="39.0" styleClass="Label" text="IP" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="521.0" AnchorPane.topAnchor="211.0">
+                              <font>
+                                  <Font name="System Bold" size="20.0" />
+                              </font>
+                          </Label>
+                          <TextField fx:id="LoginWindowIpAddressLabel" layoutX="40.0" layoutY="235.0" prefHeight="40.0" prefWidth="362.0" styleClass="LoginWindowBackgroundRadius" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="235.0" />
+                          <TextField fx:id="LoginWindowPortLabel" layoutX="440.0" layoutY="235.0" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="120.0" styleClass="LoginWindowBackgroundRadius" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="235.0" />
+                          <Label layoutX="440.0" layoutY="211.0" prefHeight="24.0" prefWidth="52.0" styleClass="Label" text="Port" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="211.0">
+                              <font>
+                                  <Font name="System Bold" size="20.0" />
+                              </font>
+                          </Label>
+                      </children>
+                  </AnchorPane>
+              </children>
+          </VBox>
+          <Button fx:id="LoginWindowConnectButton" layoutX="240.0" layoutY="354.0" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#connexion" prefHeight="40.0" prefWidth="120.0" text="Connect" textAlignment="CENTER" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="354.0" />
+          <Button fx:id="LoginWindowDetailButton" layoutX="25.0" layoutY="393.0" mnemonicParsing="false" onAction="#expandWindow" prefHeight="40.0" prefWidth="111.0" text="Details" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="474.0" AnchorPane.topAnchor="393.0">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+          <Label fx:id="LoginWindowConnectionFailedLabel" contentDisplay="CENTER" layoutX="108.0" layoutY="394.0" prefHeight="30.0" prefWidth="384.0" textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="394.0">
+              <styleClass>
+                  <String fx:value="LoginError" />
+                  <String fx:value="Alignment" />
+              </styleClass>
+          </Label>
+          <ProgressIndicator fx:id="LoginWindowProgressIndicator" layoutX="240.0" layoutY="327.0" prefHeight="95.0" prefWidth="120.0" progress="0.0" visible="false" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="327.0" />
+        </children>
+    </AnchorPane>
+    <Label fx:id="LoginWindowErrorLabel" maxHeight="211.0" minHeight="200.0" prefHeight="211.0" prefWidth="600.0" textAlignment="CENTER">
+        <font>
+          <Font size="20.0" />
+        </font>
+    </Label>
+</VBox>
